@@ -1,0 +1,8 @@
+#input-wrapper {
+  padding: 150px 50px 30px 50px;
+}
+
+#input-wrapper #input-field {
+  display: block;
+  margin: 0 auto;
+}

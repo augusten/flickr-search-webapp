@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { ImageListInterface } from "./ImageListInterfaces";
+import { ImageListInterface } from './ImageListInterfaces';
+import FlickrImage from '../Image/FlickrImage';
+import './ImageList.css';
 
 class ImageList extends Component<ImageListInterface, any> {
   constructor(props: ImageListInterface) {
@@ -8,9 +10,14 @@ class ImageList extends Component<ImageListInterface, any> {
 
   render() {
     return (
-      <div>
+      <div className="image-list">
         {this.props.list.map(function(d: any) {
-          return (<li key={d.id}>{d.id}</li>)
+          return (<FlickrImage
+            key={d.id}
+            id={d.id}
+            farmId={d.farm}
+            serverId={d.server}
+            secret={d.secret}/>)
         })}
       </div>
     );

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import Search from "../Search/Search";
-import ImageList from "../ImageList/ImageList";
-import { mapDispatchToProps, mapStateToProps } from "./ReduxConnectorFunctions";
-import { SearchContainerProps } from "./SearchContainerInterfaces";
+import { connect } from 'react-redux';
+import Search from '../Search/Search';
+import ImageList from '../ImageList/ImageList';
+import { mapDispatchToProps, mapStateToProps } from './ReduxConnectorFunctions';
+import { SearchContainerProps } from './SearchContainerInterfaces';
+import './SearchContainer.css';
 
 class SearchContainer extends Component<SearchContainerProps> {
   constructor(props: any) {
@@ -21,22 +22,16 @@ class SearchContainer extends Component<SearchContainerProps> {
   }
 
   render() {
-    console.log('this.props', this.props);
-
     return (
-      <div>
-        <div className="search">
-          <Search
-            handleInputChange={this.handleChange}
-            handleKeyDown={this.handleResponse}
-            searchTerm={this.props.searchTerm}
-          />
-        </div>
-        <div className="image-list">
-          <ImageList
-            list={this.props.list}
-          />
-        </div>
+      <div id="container">
+        <Search
+          handleInputChange={this.handleChange}
+          handleKeyDown={this.handleResponse}
+          searchTerm={this.props.searchTerm}
+        />
+        <ImageList
+          list={this.props.list}
+        />
       </div>
     )
   }
