@@ -1,6 +1,7 @@
 const initialState = {
   searchTerm: '',
-  list: []
+  list: [],
+  page: 1
 };
 
 function rootReducer(state = initialState, action) {
@@ -13,6 +14,11 @@ function rootReducer(state = initialState, action) {
     case 'REPLACE_IMAGE_LIST':
       return Object.assign({}, state, {
         list: action.payload
+      });
+
+    case 'INCREMENT_PAGE_NUMBER':
+      return Object.assign({}, state, {
+        page: state.page + 1
       });
 
     case 'ADD_PAGE_TO_IMAGE_LIST':

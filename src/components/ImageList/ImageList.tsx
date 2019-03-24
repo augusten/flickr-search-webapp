@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ImageListInterface } from './ImageListInterfaces';
+import { ImageListInterface } from './ImageListInterface';
 import FlickrImage from '../Image/FlickrImage';
 import './ImageList.css';
 

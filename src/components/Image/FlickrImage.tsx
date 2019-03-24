@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlickrImageInterface } from './FlickrImageInterfaces';
+import { FlickrImageInterface } from './FlickrImageInterface';
 import './FlickrImage.css';
 
 class FlickrImage extends Component<FlickrImageInterface, any> {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from '@material-ui/core/Input';
 import axios from 'axios';
-import { SearchProps } from './SearchInterfaces';
+import { SearchProps } from './SearchInterface';
 import './Search.css';
 
 const urlApi = 'https://api.flickr.com/services/rest/';
@@ -11,8 +11,6 @@ const keyApi = `api_key=${process.env.REACT_APP_API_KEY}`;
 const ENTER_KEY = 13;
 
 class Search extends Component<SearchProps, any> {
-  pageSize = 10;
-  pageNumber = 1;
   placeholder = 'Type in a search word and press enter';
 
   constructor(props: SearchProps) {
@@ -29,17 +27,7 @@ class Search extends Component<SearchProps, any> {
   handleKeyDown(e: any) {
     if (e.keyCode === ENTER_KEY) {
       const searchTerm = this.props.searchTerm;
-
-      if (!searchTerm) {
-        this.props.handleKeyDown([]);
-      } else {
-        const linkAPI = `${urlApi}?${methodApi}&${formatApi}&${keyApi}&tags=${searchTerm}&per_page=${this.pageSize}&page=${this.pageNumber}`;
-
-        axios.get(linkAPI).then((response) => {
-          let data = response.data.photos.photo;
-          this.props.handleKeyDown(data);
-        })
-      }
+      this.props.handleKeyDown(searchTerm);
     }
   }
 
