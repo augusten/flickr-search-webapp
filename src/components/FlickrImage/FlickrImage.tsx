@@ -11,7 +11,7 @@ class FlickrImage extends Component<FlickrImageInterface, any> {
       + this.props.serverId + '/' + this.props.id + '_' + this.props.secret + '.jpg';
 
     return (
-      <img src={src}/>
+      <a href={src}><img src={src}/></a>
     )
   }
 }

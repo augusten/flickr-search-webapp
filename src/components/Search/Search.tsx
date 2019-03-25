@@ -6,7 +6,7 @@ import './Search.css';
 const ENTER_KEY = 13;
 
 class Search extends Component<SearchProps, any> {
-  placeholder = 'Type in a search word and press enter';
+  placeholder = 'Type in something and press enter to search Flickr!';
 
   constructor(props: SearchProps) {
     super(props);
