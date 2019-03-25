@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ImageListInterface } from './ImageListInterface';
-import FlickrImage from '../Image/FlickrImage';
+import FlickrImage from '../FlickrImage/FlickrImage';
 import './ImageList.css';
 
 class ImageList extends Component<ImageListInterface, any> {

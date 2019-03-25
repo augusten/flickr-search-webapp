@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import store from "./store/index";
 import './index.css';
-import App from './App';
+import SearchContainer from './components/SearchContainer/SearchContainer';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Provider store={store}><App /></Provider>,
+  <Provider store={store}><SearchContainer /></Provider>,
   document.getElementById('root')
 );
 
