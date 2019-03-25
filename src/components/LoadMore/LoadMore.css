@@ -6,5 +6,6 @@
 }
 
 .load-more-button {
+  text-transform: none;
   width: 600px;
 }

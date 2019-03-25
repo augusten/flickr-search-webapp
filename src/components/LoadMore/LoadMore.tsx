@@ -22,7 +22,7 @@ class LoadMore extends Component<LoadMoreInterface, any> {
           className="load-more-button"
           onClick={this.onLoadMore}
         >
-          Load More
+          Load more
         </Button>
       </div>
     )

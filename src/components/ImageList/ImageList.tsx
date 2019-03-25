@@ -13,7 +13,7 @@ class ImageList extends Component<ImageListInterface, any> {
       <ul id="gallery" className="grid">
           {this.props.list.map(function(d: any, index: number) {
             return (<li key={"li-" + index + d.id} className="image-list-item">
-              <figure key={"figure-" + index + d.id} className="grid__figure">
+              <figure key={"figure-" + index + d.id} className="grid-figure">
                 <FlickrImage
                   key={d.id + index}
                   id={d.id}
