@@ -32,7 +32,6 @@ ul {
 .grid-figure {
   display: grid;
   grid-template-rows: 15em 1fr;
-  grid-gap: 1em;
 }
 .grid-figure img {
   width: 100%;

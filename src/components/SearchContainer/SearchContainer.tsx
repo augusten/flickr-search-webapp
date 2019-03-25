@@ -30,17 +30,21 @@ class SearchContainer extends Component<SearchContainerProps> {
   handleResponse(searchTerm: string, newSearch = true) {
     if (!searchTerm) {
       this.props.replaceImageList([]);
+    } else if (newSearch) {
+      this.props.resetPageNumber();
+      setTimeout( () => {
+        const linkAPI = `${urlApi}?${methodApi}&${formatApi}&${keyApi}&tags=${searchTerm}&per_page=${this.pageSize}&page=${this.props.page}`;
+        axios.get(linkAPI).then((response) => {
+          const data = response.data.photos.photo;
+          this.props.replaceImageList(data)
+        })
+      });
     } else {
       const linkAPI = `${urlApi}?${methodApi}&${formatApi}&${keyApi}&tags=${searchTerm}&per_page=${this.pageSize}&page=${this.props.page}`;
 
       axios.get(linkAPI).then((response) => {
         let data = response.data.photos.photo;
-        if (newSearch) {
-          this.props.resetPageNumber();
-          setTimeout( () => this.props.replaceImageList(data));
-        } else {
-          this.props.addPageToImageList(data);
-        }
+        this.props.addPageToImageList(data);
       })
     }
   }
