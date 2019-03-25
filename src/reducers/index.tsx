@@ -21,6 +21,11 @@ function rootReducer(state = initialState, action) {
         page: state.page + 1
       });
 
+    case 'RESET_PAGE_NUMBER':
+      return Object.assign({}, state, {
+        page: 1
+      });
+
     case 'ADD_PAGE_TO_IMAGE_LIST':
       return Object.assign({}, state, {
         list: state.list.concat(action.payload)

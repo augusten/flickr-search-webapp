@@ -16,11 +16,9 @@ class LoadMore extends Component<LoadMoreInterface, any> {
 
   render() {
     return (
-      <div id="load-more-wrapper">
+      <div className="load-more-wrapper">
         <Button
-          fullWidth={true}
-          variant="contained"
-          color="primary"
+          variant="outlined"
           className="load-more-button"
           onClick={this.onLoadMore}
         >

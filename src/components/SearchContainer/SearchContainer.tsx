@@ -27,7 +27,7 @@ class SearchContainer extends Component<SearchContainerProps> {
     this.props.replaceSearchTerm(val);
   }
 
-  handleResponse(searchTerm: string) {
+  handleResponse(searchTerm: string, newSearch = true) {
     if (!searchTerm) {
       this.props.replaceImageList([]);
     } else {
@@ -35,8 +35,9 @@ class SearchContainer extends Component<SearchContainerProps> {
 
       axios.get(linkAPI).then((response) => {
         let data = response.data.photos.photo;
-        if (this.props.page === 1) {
-          this.props.replaceImageList(data);
+        if (newSearch) {
+          this.props.resetPageNumber();
+          setTimeout( () => this.props.replaceImageList(data));
         } else {
           this.props.addPageToImageList(data);
         }
@@ -46,11 +47,10 @@ class SearchContainer extends Component<SearchContainerProps> {
 
   addPage() {
     this.props.incrementPageNumber();
-    setTimeout(() => this.handleResponse(this.props.searchTerm));
+    setTimeout(() => this.handleResponse(this.props.searchTerm, false));
   }
 
   render() {
-    // TODO: make LoadMore conditional
     const endBlock = this.props.list.length ? (<LoadMore addPage={this.addPage}/>) : null;
 
     return (

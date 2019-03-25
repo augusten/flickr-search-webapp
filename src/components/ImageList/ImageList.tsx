@@ -10,16 +10,21 @@ class ImageList extends Component<ImageListInterface, any> {
 
   render() {
     return (
-      <div className="image-list">
-        {this.props.list.map(function(d: any) {
-          return (<FlickrImage
-            key={d.id}
-            id={d.id}
-            farmId={d.farm}
-            serverId={d.server}
-            secret={d.secret}/>)
-        })}
-      </div>
+      <ul id="gallery" className="grid">
+          {this.props.list.map(function(d: any, index: number) {
+            return (<li key={"li-" + index + d.id} className="image-list-item">
+              <figure key={"figure-" + index + d.id} className="grid__figure">
+                <FlickrImage
+                  key={d.id + index}
+                  id={d.id}
+                  farmId={d.farm}
+                  serverId={d.server}
+                  secret={d.secret}
+                />
+              </figure>
+            </li>)
+          })}
+      </ul>
     );
   }
 }

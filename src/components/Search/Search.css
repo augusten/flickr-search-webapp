@@ -1,8 +1,10 @@
-#input-wrapper {
+.input-wrapper {
+  align-items: center;
+  justify-content: center;
+  display: flex;
   padding: 150px 50px 30px 50px;
 }
 
-#input-wrapper #input-field {
-  display: block;
-  margin: 0 auto;
+.input-material {
+  width: 400px;
 }

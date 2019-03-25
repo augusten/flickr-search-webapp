@@ -6,4 +6,5 @@ export interface SearchContainerProps {
   replaceImageList: any,
   incrementPageNumber: any,
   addPageToImageList: any,
+  resetPageNumber: any,
 }

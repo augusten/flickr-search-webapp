@@ -1,4 +1,5 @@
-import {addPageToImageList, incrementPageNumber, replaceImageList, replaceSearchTerm} from '../../actions';
+import { addPageToImageList, incrementPageNumber, resetPageNumber,
+  replaceImageList, replaceSearchTerm } from '../../actions';
 
 export function mapStateToProps(state) {
   return {
@@ -14,5 +15,6 @@ export function mapDispatchToProps(dispatch) {
     replaceImageList: list => dispatch(replaceImageList(list)),
     addPageToImageList: list => dispatch(addPageToImageList(list)),
     incrementPageNumber: () => dispatch(incrementPageNumber()),
+    resetPageNumber: () => dispatch(resetPageNumber()),
   };
 }
