@@ -1,10 +1,13 @@
+## Description
+This project allows you to search through Flickr images based on a single search input.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `REACT_APP_API_KEY={REACT_APP_API_KEY} npm start`
+### `REACT_APP_API_KEY={REACT_APP_FLICKR_API_KEY} npm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
