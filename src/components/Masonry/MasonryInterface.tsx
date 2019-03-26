@@ -1,3 +1,4 @@
 export interface MasonryInterface {
-  itemsWithSizes: any[]
+  itemsWithSizes: any[],
+  setRef: any
 }

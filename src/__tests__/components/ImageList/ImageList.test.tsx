@@ -4,6 +4,7 @@ import { shallow, configure } from 'enzyme';
 import ImageList from "../../../components/ImageList/ImageList";
 
 configure({adapter: new Adapter()});
+jest.disableAutomock();
 
 describe('ImageList Component', () => {
   let wrapper;

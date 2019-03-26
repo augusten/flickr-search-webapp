@@ -11,7 +11,7 @@ import {
   cache,
   cellPositioner,
   keyMapper
-} from "./Constants";
+} from "../../constants/ConstantsForImageGallery";
 import { MasonryInterface } from "./MasonryInterface";
 
 class MasonryComponent extends Component<MasonryInterface> {
@@ -19,7 +19,15 @@ class MasonryComponent extends Component<MasonryInterface> {
     super(props);
   }
 
-  cellRenderer = ({ index, key, parent, style }) => {
+  cellRenderer = (data) => {
+    if (!data) {
+      return;
+    }
+    let index = data.index;
+    let key = data.key;
+    let parent = data.parent;
+    let style = data.style;
+
     const { item, size } = this.props.itemsWithSizes[index];
     const height = columnWidth * (size.height / size.width) || defaultHeight;
 
@@ -50,8 +58,9 @@ class MasonryComponent extends Component<MasonryInterface> {
         cellPositioner={cellPositioner}
         cellRenderer={this.cellRenderer}
         height={window.outerHeight}
-        width={window.outerWidth}
+        width={columnWidth * 3 + 30}
         keyMapper={keyMapper}
+        ref={this.props.setRef}
       />
     );
   }

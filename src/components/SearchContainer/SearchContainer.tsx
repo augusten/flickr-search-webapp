@@ -7,11 +7,7 @@ import LoadMore from "../LoadMore/LoadMore";
 import { mapDispatchToProps, mapStateToProps } from './ReduxConnectorFunctions';
 import { SearchContainerProps } from './SearchContainerInterface';
 import './SearchContainer.css';
-
-const urlApi = 'https://api.flickr.com/services/rest/';
-const methodApi = 'method=flickr.photos.search';
-const formatApi = 'format=json&nojsoncallback=1';
-const keyApi = `api_key=${process.env.REACT_APP_API_KEY}`;
+import { urlApi, methodApi, keyApi, formatApi } from "../../constants/ConstantsFlickrAPI";
 
 class SearchContainer extends Component<SearchContainerProps> {
   pageSize = 10;
