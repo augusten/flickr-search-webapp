@@ -1,31 +1,44 @@
 import React, { Component } from 'react';
 import { ImageListInterface } from './ImageListInterface';
-import FlickrImage from '../FlickrImage/FlickrImage';
 import './ImageList.css';
+import {
+  CellMeasurer,
+  CellMeasurerCache,
+  createMasonryCellPositioner,
+  Masonry
+} from "react-virtualized";
+import ImageMeasurer from "react-virtualized-image-measurer";
+import MasonryComponent from "../Masonry/Masonry";
 
 class ImageList extends Component<ImageListInterface, any> {
+  defaultHeight = 250;
+  defaultWidth = 200;
+
   constructor(props: ImageListInterface) {
     super(props);
   }
 
   render() {
+    const propsList = this.props.list.map(d => {
+      d['href'] = 'https://farm' + d.farm + '.staticflickr.com/'
+        + d.server + '/' + d.id + '_' + d.secret + '.jpg';
+      return d;
+    });
+    console.log('propsList', propsList)
     return (
-      <ul id="gallery" className="grid">
-          {this.props.list.map(function(d: any, index: number) {
-            return (<li key={"li-" + index + d.id} className="image-list-item">
-              <figure key={"figure-" + index + d.id} className="grid-figure">
-                <FlickrImage
-                  key={d.id + index}
-                  id={d.id}
-                  farmId={d.farm}
-                  serverId={d.server}
-                  secret={d.secret}
-                />
-              </figure>
-            </li>)
-          })}
-      </ul>
-    );
+    <ImageMeasurer
+      items={propsList}
+      image={item => item.href}
+      defaultHeight={this.defaultHeight}
+      defaultWidth={this.defaultWidth}
+      >
+      {( {itemsWithSizes} ) => (
+        <MasonryComponent
+          itemsWithSizes={itemsWithSizes}
+        />
+      )}
+      </ImageMeasurer>
+    )
   }
 }
 
